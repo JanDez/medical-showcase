@@ -4,6 +4,8 @@
 ### dotenv ###
 .env
 .env.test
+.env.development
+.env.prod
 
 
 ### NextJS ###
