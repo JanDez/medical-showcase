@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1733787103117,
+      "tag": "0000_spotty_namorita",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1733790150302,
+      "tag": "0001_heavy_spiral",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1733791012617,
+      "tag": "0002_true_inhumans",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1734149296923,
+      "tag": "0003_optimal_omega_flight",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1734155488331,
+      "tag": "0004_unknown_gertrude_yorkes",
+      "breakpoints": true
+    }
+  ]
+}
