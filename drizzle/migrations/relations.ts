@@ -17,8 +17,8 @@ export const medicalShowcaseAssetRelations = relations(medicalShowcaseAsset, ({m
 	medicalShowcaseLayouts_assetId: many(medicalShowcaseLayout, {
 		relationName: "medicalShowcaseLayout_assetId_medicalShowcaseAsset_id"
 	}),
-	medicalShowcaseLayouts_assetId: many(medicalShowcaseLayout, {
-		relationName: "medicalShowcaseLayout_assetId_medicalShowcaseAsset_id"
+	medicalShowcaseLayouts_otherId: many(medicalShowcaseLayout, {
+		relationName: "medicalShowcaseLayout_otherId_medicalShowcaseAsset_id"
 	}),
 	medicalShowcaseStoryboards: many(medicalShowcaseStoryboard),
 	medicalShowcaseAssetTags: many(medicalShowcaseAssetTag),
@@ -26,8 +26,8 @@ export const medicalShowcaseAssetRelations = relations(medicalShowcaseAsset, ({m
 	medicalShowcaseMetrics_assetId: many(medicalShowcaseMetric, {
 		relationName: "medicalShowcaseMetric_assetId_medicalShowcaseAsset_id"
 	}),
-	medicalShowcaseMetrics_assetId: many(medicalShowcaseMetric, {
-		relationName: "medicalShowcaseMetric_assetId_medicalShowcaseAsset_id"
+	medicalShowcaseMetrics_otherId: many(medicalShowcaseMetric, {
+		relationName: "medicalShowcaseMetric_otherId_medicalShowcaseAsset_id"
 	}),
 }));
 
@@ -41,7 +41,7 @@ export const medicalShowcaseLayoutRelations = relations(medicalShowcaseLayout, (
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseLayout_assetId_medicalShowcaseAsset_id"
 	}),
-	medicalShowcaseAsset_assetId: one(medicalShowcaseAsset, {
+	medicalShowcaseAsset_assetId_2: one(medicalShowcaseAsset, {
 		fields: [medicalShowcaseLayout.assetId],
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseLayout_assetId_medicalShowcaseAsset_id"
@@ -75,7 +75,7 @@ export const medicalShowcaseMetricRelations = relations(medicalShowcaseMetric, (
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseMetric_assetId_medicalShowcaseAsset_id"
 	}),
-	medicalShowcaseAsset_assetId: one(medicalShowcaseAsset, {
+	medicalShowcaseAsset_assetId_2: one(medicalShowcaseAsset, {
 		fields: [medicalShowcaseMetric.assetId],
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseMetric_assetId_medicalShowcaseAsset_id"
