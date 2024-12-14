@@ -41,7 +41,7 @@ export const medicalShowcaseLayoutRelations = relations(medicalShowcaseLayout, (
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseLayout_assetId_medicalShowcaseAsset_id"
 	}),
-	medicalShowcaseAsset_assetId: one(medicalShowcaseAsset, {
+	medicalShowcaseAsset_assetId_2: one(medicalShowcaseAsset, {
 		fields: [medicalShowcaseLayout.assetId],
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseLayout_assetId_medicalShowcaseAsset_id"
@@ -75,7 +75,7 @@ export const medicalShowcaseMetricRelations = relations(medicalShowcaseMetric, (
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseMetric_assetId_medicalShowcaseAsset_id"
 	}),
-	medicalShowcaseAsset_assetId: one(medicalShowcaseAsset, {
+	medicalShowcaseAsset_assetId_2: one(medicalShowcaseAsset, {
 		fields: [medicalShowcaseMetric.assetId],
 		references: [medicalShowcaseAsset.id],
 		relationName: "medicalShowcaseMetric_assetId_medicalShowcaseAsset_id"
