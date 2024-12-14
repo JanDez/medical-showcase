@@ -1,0 +1,1 @@
+ALTER TABLE "medical-showcase_asset_share" ADD COLUMN "updated_at" timestamp DEFAULT now() NOT NULL;
