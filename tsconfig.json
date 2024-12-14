@@ -33,10 +33,22 @@
     ".eslintrc.cjs",
     "next-env.d.ts",
     "**/*.ts",
+    "**/*.js",
     "**/*.tsx",
     "**/*.cjs",
-    "**/*.js",
-    ".next/types/**/*.ts"
+    ".next/types/**/*.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx"
   ],
-  "exclude": ["node_modules"]
+  "exclude": [
+    "node_modules",
+    "coverage",
+    "dist",
+    ".next",
+    "src/app/server/db/migrations",
+    "src/app/server/db/schema.ts",
+    "src/app/server/db/seed.ts",
+    "src/app/server/db/migrations",
+    "src/app/server/db/schema.ts",
+  ]
 }
