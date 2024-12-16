@@ -26,7 +26,8 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@stoplight/elements": ["./node_modules/@stoplight/elements"]
     },
     "typeRoots": ["./src/@types", "./node_modules/@types"]
   },
