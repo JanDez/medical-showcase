@@ -14,7 +14,8 @@ const sortColumnMap = {
  * @swagger
  * /api/storyboards:
  *   get:
- *     tags: [Storyboards]
+ *     tags:
+ *       - Storyboards
  *     summary: Get a list of storyboards
  *     description: Retrieves a paginated list of storyboards with sorting options
  *     parameters:
@@ -22,45 +23,38 @@ const sortColumnMap = {
  *         name: page
  *         schema:
  *           type: integer
- *         description: Page number (default: 1)
+ *         required: false
+ *         description: "Page number (default: 1)"
  *       - in: query
  *         name: pageSize
  *         schema:
  *           type: integer
- *         description: Number of items per page (default: 10)
+ *         required: false
+ *         description: "Number of items per page (default: 10)"
  *       - in: query
  *         name: sortBy
  *         schema:
  *           type: string
  *           enum: [createdAt, updatedAt, name]
- *         description: Field to sort by (default: createdAt)
+ *         required: false
+ *         description: "Field to sort by (default: createdAt)"
  *       - in: query
  *         name: sortOrder
  *         schema:
  *           type: string
  *           enum: [asc, desc]
- *         description: Sort order (default: desc)
+ *         required: false
+ *         description: "Sort order (default: desc)"
  *     responses:
- *       200:
+ *       "200":
  *         description: Successful response
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/Storyboard'
- *                 total:
- *                   type: integer
- *                 page:
- *                   type: integer
- *                 pageSize:
- *                   type: integer
- *       400:
+ *               $ref: "#/components/schemas/PaginatedResponse"
+ *       "400":
  *         description: Invalid parameters
- *       500:
+ *       "500":
  *         description: Server error
  */
 export async function GET(request: Request) {

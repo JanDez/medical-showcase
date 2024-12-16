@@ -10,31 +10,44 @@ import { sql, desc } from 'drizzle-orm';
  *   get:
  *     tags: [Search]
  *     summary: Search assets
- *     description: Search across assets with query parameters
+ *     description: Search across assets with query parameters, pagination and sorting
  *     parameters:
  *       - in: query
- *         name: q
+ *         name: query
  *         schema:
  *           type: string
  *         description: Search query string
  *       - in: query
- *         name: type
+ *         name: page
+ *         schema:
+ *           type: integer
+ *         description: Page number (default: 1)
+ *       - in: query
+ *         name: pageSize
+ *         schema:
+ *           type: integer
+ *         description: Number of items per page (default: 10)
+ *       - in: query
+ *         name: sortBy
  *         schema:
  *           type: string
- *           enum: [storyboard, layout, kpi]
- *         description: Filter by asset type
+ *           enum: [createdAt, updatedAt, name, viewCount]
+ *         description: Field to sort by (default: createdAt)
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *         description: Sort order (default: desc)
  *     responses:
  *       200:
  *         description: Successful response
  *         content:
  *           application/json:
  *             schema:
- *               type: object
- *               properties:
- *                 data:
- *                   type: array
- *                   items:
- *                     $ref: '#/components/schemas/Asset'
+ *               $ref: '#/components/schemas/PaginatedResponse'
+ *       400:
+ *         description: Invalid parameters
  *       500:
  *         description: Server error
  */
