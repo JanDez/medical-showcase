@@ -12,7 +12,31 @@ const sortColumnMap = {
   viewCount: assets.viewCount,
 } as const;
 
-// GET /api/assets - List assets
+/**
+ * @swagger
+ * /api/assets:
+ *   get:
+ *     tags: [Assets]
+ *     summary: Get a list of assets
+ *     description: Retrieves a paginated list of assets with sorting options
+ *     parameters:
+ *       - $ref: '#/components/parameters/pageParam'
+ *       - $ref: '#/components/parameters/pageSizeParam'
+ *       - $ref: '#/components/parameters/sortByParam'
+ *       - $ref: '#/components/parameters/sortOrderParam'
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/PaginatedResponse'
+ *       400:
+ *         description: Invalid parameters
+ *       500:
+ *         description: Server error
+ */
+
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url)
@@ -64,4 +88,6 @@ export async function GET(request: Request) {
     return handleApiError(error, 'Failed to fetch assets')
   }
 }
+
+
 
