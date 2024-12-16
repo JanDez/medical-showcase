@@ -10,7 +10,53 @@ const sortColumnMap = {
   name: storyboards.name,
 } as const;
 
-// GET /api/storyboards - List storyboards
+/**
+ * @swagger
+ * /api/storyboards:
+ *   get:
+ *     tags:
+ *       - Storyboards
+ *     summary: Get a list of storyboards
+ *     description: Retrieves a paginated list of storyboards with sorting options
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *         required: false
+ *         description: "Page number (default: 1)"
+ *       - in: query
+ *         name: pageSize
+ *         schema:
+ *           type: integer
+ *         required: false
+ *         description: "Number of items per page (default: 10)"
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           enum: [createdAt, updatedAt, name]
+ *         required: false
+ *         description: "Field to sort by (default: createdAt)"
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *         required: false
+ *         description: "Sort order (default: desc)"
+ *     responses:
+ *       "200":
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: "#/components/schemas/PaginatedResponse"
+ *       "400":
+ *         description: Invalid parameters
+ *       "500":
+ *         description: Server error
+ */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);

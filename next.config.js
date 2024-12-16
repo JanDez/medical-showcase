@@ -5,7 +5,7 @@
 /** @type {import("next").NextConfig} */
 const config = {
   reactStrictMode: true,
-  transpilePackages: ["geist"],
+  transpilePackages: ["geist", "swagger-ui-react"],
   experimental: {
     serverActions: {
       bodySizeLimit: '2mb'

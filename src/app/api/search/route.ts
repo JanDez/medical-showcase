@@ -4,7 +4,53 @@ import { assets } from '@/app/server/db/schema';
 import { baseSearchParamsSchema } from '@/app/lib/schemas';
 import { sql, desc } from 'drizzle-orm';
 
-// GET /api/search/recent - Search recent searches
+/**
+ * @swagger
+ * /api/search:
+ *   get:
+ *     tags: [Search]
+ *     summary: Search assets
+ *     description: Search across assets with query parameters, pagination and sorting
+ *     parameters:
+ *       - in: query
+ *         name: query
+ *         schema:
+ *           type: string
+ *         description: Search query string
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *         description: Page number (default: 1)
+ *       - in: query
+ *         name: pageSize
+ *         schema:
+ *           type: integer
+ *         description: Number of items per page (default: 10)
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           enum: [createdAt, updatedAt, name, viewCount]
+ *         description: Field to sort by (default: createdAt)
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *         description: Sort order (default: desc)
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/PaginatedResponse'
+ *       400:
+ *         description: Invalid parameters
+ *       500:
+ *         description: Server error
+ */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
