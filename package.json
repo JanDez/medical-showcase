@@ -32,6 +32,7 @@
     "@radix-ui/react-toast": "^1.2.2",
     "@t3-oss/env-nextjs": "^0.10.1",
     "@tanstack/react-query": "^5.62.7",
+    "@types/swagger-ui-react": "^4.18.3",
     "@uidotdev/usehooks": "^2.4.1",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
@@ -46,6 +47,8 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "sonner": "^1.7.1",
+    "swagger-jsdoc": "^6.2.8",
+    "swagger-ui-react": "^5.18.2",
     "tailwind-merge": "^2.5.5",
     "zod": "^3.24.0",
     "zustand": "4.4.1"
