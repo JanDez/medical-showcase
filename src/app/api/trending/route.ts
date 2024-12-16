@@ -9,7 +9,48 @@ const sortColumnMap = {
   createdAt: assets.createdAt,
 } as const;
 
-// GET /api/trending - List trending assets
+/**
+ * @swagger
+ * /api/trending:
+ *   get:
+ *     tags: [Trending]
+ *     summary: Get trending assets
+ *     description: Retrieves a list of trending assets sorted by view count
+ *     parameters:
+ *       - in: query
+ *         name: page
+ *         schema:
+ *           type: integer
+ *         description: Page number (default: 1)
+ *       - in: query
+ *         name: pageSize
+ *         schema:
+ *           type: integer
+ *         description: Number of items per page (default: 4)
+ *       - in: query
+ *         name: sortBy
+ *         schema:
+ *           type: string
+ *           enum: [viewCount, createdAt]
+ *         description: Field to sort by (default: viewCount)
+ *       - in: query
+ *         name: sortOrder
+ *         schema:
+ *           type: string
+ *           enum: [asc, desc]
+ *         description: Sort order (default: desc)
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               $ref: '#/components/schemas/PaginatedResponse'
+ *       400:
+ *         description: Invalid parameters
+ *       500:
+ *         description: Server error
+ */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);

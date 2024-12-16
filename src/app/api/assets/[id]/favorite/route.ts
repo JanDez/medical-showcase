@@ -10,7 +10,7 @@ export async function PUT(
   try {
     const resolvedParams = await params
     const id = parseInt(resolvedParams.id)
-    const { isFavorite } = await request.json()
+    const { isFavorite }: { isFavorite: boolean } = await request.json()
 
     await db
       .update(assets)
@@ -19,6 +19,7 @@ export async function PUT(
 
     return NextResponse.json({ success: true })
   } catch (error) {
+    console.error('Failed to update favorite status:', error)
     return NextResponse.json(
       { error: 'Failed to update favorite status' },
       { status: 500 }
@@ -41,6 +42,7 @@ export async function DELETE(
 
     return NextResponse.json({ success: true })
   } catch (error) {
+    console.error('Failed to remove favorite:', error)
     return NextResponse.json(
       { error: 'Failed to remove favorite' },
       { status: 500 }

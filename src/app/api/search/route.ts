@@ -4,7 +4,40 @@ import { assets } from '@/app/server/db/schema';
 import { baseSearchParamsSchema } from '@/app/lib/schemas';
 import { sql, desc } from 'drizzle-orm';
 
-// GET /api/search/recent - Search recent searches
+/**
+ * @swagger
+ * /api/search:
+ *   get:
+ *     tags: [Search]
+ *     summary: Search assets
+ *     description: Search across assets with query parameters
+ *     parameters:
+ *       - in: query
+ *         name: q
+ *         schema:
+ *           type: string
+ *         description: Search query string
+ *       - in: query
+ *         name: type
+ *         schema:
+ *           type: string
+ *           enum: [storyboard, layout, kpi]
+ *         description: Filter by asset type
+ *     responses:
+ *       200:
+ *         description: Successful response
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: object
+ *               properties:
+ *                 data:
+ *                   type: array
+ *                   items:
+ *                     $ref: '#/components/schemas/Asset'
+ *       500:
+ *         description: Server error
+ */
 export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
