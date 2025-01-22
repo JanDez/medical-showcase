@@ -22,11 +22,11 @@ export function RequestList() {
             <CardTitle className="flex justify-between items-center">
               <span>{request.name}</span>
               <Badge variant={
-                request.status === 'Approved' ? 'secondary' :
-                request.status === 'Rejected' ? 'destructive' :
+                request.status === 'approved' ? 'secondary' :
+                request.status === 'rejected' ? 'destructive' :
                 'default'
               }>
-                {request.status}
+                {request.status.charAt(0).toUpperCase() + request.status.slice(1)}
               </Badge>
             </CardTitle>
           </CardHeader>
