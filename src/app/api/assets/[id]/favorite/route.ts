@@ -65,14 +65,17 @@ import { eq } from 'drizzle-orm'
  *         description: Server error
  */
 
+interface FavoriteRequest {
+  isFavorite: boolean;
+}
+
 export async function PUT(
   request: Request,
   { params }: { params: { id: string } }
 ) {
   try {
-    const resolvedParams = await params
-    const id = parseInt(resolvedParams.id)
-    const { isFavorite }: { isFavorite: boolean } = await request.json()
+    const id = parseInt(params.id)
+    const { isFavorite } = await request.json() as FavoriteRequest
 
     await db
       .update(assets)
@@ -94,8 +97,7 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ) {
   try {
-    const resolvedParams = await params
-    const id = parseInt(resolvedParams.id)
+    const id = parseInt(params.id)
 
     await db
       .update(assets)
